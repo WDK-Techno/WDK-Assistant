@@ -2,6 +2,7 @@ import smtplib
 import speech_recognition as sr
 import pyttsx3
 from email.message import EmailMessage
+import csv
 
 
 listener = sr.Recognizer()
@@ -50,23 +51,25 @@ def send_email(receiver, subject,message):
     #                 'Helow Mr.WDK.How are you..'
     #                 'Hope your are well.. '
     #                 'I send this message for testing my program.')
-email_list={
-    'hero': 'wdkcochero@gmail.com',
-    'wdk' : 'wdilshankavindra@gmail.com',
-    'kavi': 'dkavindraweerasinghe@gmail.com',
-    'sas': 'sasandilantha@gmail.com',
-    'suv': 'suvinilakshani@gmail.com',
-    'si': 'sitharaathurupana@gmail.com',
-    'ash': 'washanadithya@gmail.com',
-    'father':'rohitha099@gmail.com'
-}
 
+
+emails = {}
+with open('WDKDataBase/Emails.csv','r') as csv_file:
+    csv_reader= csv.reader(csv_file)
+
+    # csv_writer = csv.DictWriter(new_file, fieldnames=fieldnamesE, delimiter='\t')
+    # csv_writer.writeheader()
+
+    #header = next(csv_reader)
+
+    for line in csv_reader:
+        emails[line[0]] = line[1]
 
 def get_email_info():
     try:
         talk('To whom you want to send eamil?')
         name=get_info()
-        receiver= email_list[name]
+        receiver= emails[name]
         print(receiver)
         talk('What is the subject of your email?')
         subject = get_info()

@@ -1,6 +1,6 @@
 import os
 import wmi
-
+import csv
 from WDKFunctions import OpenFolder
 def terminate(nameF):
     try:
@@ -30,29 +30,44 @@ def listOfprocess():
 
 
 
-myAppsOpen = {
-    'notepad': 'C:\\Windows\\system32\\notepad.exe',
-    'whatsapp':'C:\\Users\\wdils\\AppData\\Local\\WhatsApp\\WhatsApp.exe',
-    'chrome':'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-    'snippingtool':'C:\\Windows\\system32\\SnippingTool.exe',
+# myAppsOpen = {
+#     'notepad': 'C:\\Windows\\system32\\notepad.exe',
+#     'whatsapp':'C:\\Users\\wdils\\AppData\\Local\\WhatsApp\\WhatsApp.exe',
+#     'chrome':'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+#     'snippingtool':'C:\\Windows\\system32\\SnippingTool.exe',
+#
+# }
 
-}
+# myAppsClose = {
+#     'notepad': 'notepad.exe',
+#     'chrome': 'chrome.exe',
+#     'zoom': 'Zoom.exe',
+#     'whatsapp': 'WhatsApp.exe',
+#     'allfolders':'explorer.exe',
+#     'snippingtool':'SnippingTool.exe',
+#
+#
+# }
 
-myAppsClose = {
-    'notepad': 'notepad.exe',
-    'chrome': 'chrome.exe',
-    'zoom': 'Zoom.exe',
-    'whatsapp': 'WhatsApp.exe',
-    'allfolders':'explorer.exe',
-    'snippingtool':'SnippingTool.exe',
+AppsOpen = {}
+AppsClose = {}
+with open('WDKDataBase/AppOpen.csv', 'r') as csv_file:
+    csv_reader= csv.reader(csv_file)
+    for line in csv_reader:
+        AppsOpen[line[0]] = line[1]
+
+with open('WDKDataBase/AppClose.csv', 'r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        AppsClose[row[0]] = row[1]
 
 
-}
+
 def OpenApp(command):
     try:
         if command == 'whats':
             command = 'whatsapp'
-        app = myAppsOpen[command]
+        app = AppsOpen[command]
         os.startfile(app)
         return 'done'
     except:
@@ -60,14 +75,12 @@ def OpenApp(command):
 
 def CloseApp(command):
     try:
-        if command == 'whats' or 'whatsapp':
+        if command == ('whats' or 'whatsapp'):
             command = 'whatsapp'
-        app = myAppsClose[command]
+        app = AppsClose[command]
         terminate(app)
         return 'done'
     except:
         return 'Invalid'
-
-
 
 
