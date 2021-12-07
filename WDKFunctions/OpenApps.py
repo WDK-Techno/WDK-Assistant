@@ -1,7 +1,8 @@
 import os
 import wmi
 import csv
-from WDKFunctions import OpenFolder
+
+
 def terminate(nameF):
     try:
         ti = 0
@@ -16,6 +17,7 @@ def terminate(nameF):
     except:
         print('process done')
 
+
 def listOfprocess():
     # Initializing the wmi constructor
     f = wmi.WMI()
@@ -27,7 +29,6 @@ def listOfprocess():
     for process in f.Win32_Process():
         # Displaying the P_ID and P_Name of the process
         print(f"{process.ProcessId:<10} {process.Name}")
-
 
 
 # myAppsOpen = {
@@ -51,19 +52,18 @@ def listOfprocess():
 
 AppsOpen = {}
 AppsClose = {}
-with open('WDKDataBase/AppOpen.csv', 'r') as csv_file:
-    csv_reader= csv.reader(csv_file)
+with open('WDKFunctions/WDKDataBase/AppsOpening.csv', 'r') as csv_file:
+    csv_reader = csv.reader(csv_file)
     for line in csv_reader:
         AppsOpen[line[0]] = line[1]
 
-with open('WDKDataBase/AppClose.csv', 'r') as file:
+with open('WDKFunctions/WDKDataBase/AppClose.csv', 'r') as file:
     reader = csv.reader(file)
     for row in reader:
         AppsClose[row[0]] = row[1]
 
 
-
-def OpenApp(command):
+def open_app(command):
     try:
         if command == 'whats':
             command = 'whatsapp'
@@ -73,7 +73,8 @@ def OpenApp(command):
     except:
         return 'Invalid'
 
-def CloseApp(command):
+
+def close_app(command):
     try:
         if command == ('whats' or 'whatsapp'):
             command = 'whatsapp'
@@ -82,5 +83,3 @@ def CloseApp(command):
         return 'done'
     except:
         return 'Invalid'
-
-

@@ -8,7 +8,9 @@ import pyjokes
 import sys
 import keyboard
 import urllib.request
-from WDKFunctions import OpenApps , OpenFolder
+import WDKFunctions.OpenApps
+from WDKFunctions.OpenFolder import OpenFolderF
+#from WDKFunctions import OpenApps, OpenFolder
 from WDKFunctions.EmailBot import get_email_info
 
 listener = sr.Recognizer()
@@ -157,7 +159,7 @@ def run_alexa():
         commandF = command.replace('open', '')
         commandF1 = commandF.replace('app', '')
         commandF2 = commandF1.replace(' ', '')
-        openF = OpenApps.OpenApp(commandF2)
+        openF = WDKFunctions.OpenApps.open_app(commandF2)
         if openF == 'Invalid':
             talk('please say the command again.')
         elif openF == 'done':
@@ -168,7 +170,7 @@ def run_alexa():
     elif 'stop' in command:
         commandF = command.replace('stop', '')
         commandF = commandF.replace(' ', '')
-        closeF = OpenApps.CloseApp(commandF)
+        closeF = WDKFunctions.OpenApps.close_app(commandF)
         if closeF == 'Invalid':
             talk('please say the command again.')
         elif closeF == 'done':
@@ -181,7 +183,7 @@ def run_alexa():
         commandF = command.replace('open', '')
         commandF = commandF.replace('folder', '')
         commandF = commandF.replace(' ', '')
-        openF = OpenFolder.OpenFolder(commandF)
+        openF = OpenFolderF(commandF)
         if openF == 'Invalid':
             talk('please say the command again.')
         elif openF == 'done':

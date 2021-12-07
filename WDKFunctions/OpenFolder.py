@@ -22,16 +22,16 @@ import csv
 #
 # }
 FoldersOpen = {}
-with open('WDKDataBase/FolderOpen.csv', 'r') as csv_file:
-    csv_reader= csv.reader(csv_file)
-    for line in csv_reader:
+with open('WDKFunctions/WDKDataBase/FoldersOpening.csv', 'r') as csv1_file:
+    csv1_reader= csv.reader(csv1_file)
+    for line in csv1_reader:
         FoldersOpen[line[0]] = line[1]
 
 
 
 
 #OpenFolder Function
-def OpenFolder(command):
+def OpenFolderF(command):
     try:
         folder = FoldersOpen[command]
         os.startfile(folder)

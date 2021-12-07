@@ -54,7 +54,7 @@ def send_email(receiver, subject,message):
 
 
 emails = {}
-with open('WDKDataBase/Emails.csv','r') as csv_file:
+with open('WDKFunctions/WDKDataBase/Emails.csv', 'r') as csv_file:
     csv_reader= csv.reader(csv_file)
 
     # csv_writer = csv.DictWriter(new_file, fieldnames=fieldnamesE, delimiter='\t')
