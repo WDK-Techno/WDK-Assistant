@@ -6,9 +6,5 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (WDK Assistant)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="activeComputer" />
-    <orderEntry type="module" module-name="AutomateMessanger" />
-    <orderEntry type="module" module-name="Test 1" />
-    <orderEntry type="module" module-name="EmailBot" />
   </component>
 </module>

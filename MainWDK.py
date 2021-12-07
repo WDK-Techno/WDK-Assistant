@@ -206,10 +206,10 @@ def run_alexa():
         run_alexa()
 
 
-# myName = input("Enter Your name : ")
-# botName = input("Enter your assistance name : ")
-myName = 'WDK'
-botName = 'alexa'
+myName = input("Enter Your name : ")
+botName = input("Enter your assistance name : ")
+# myName = 'WDK'
+# botName = 'alexa'
 talk('connected' if connect() else 'no internet!')
 talk("Hello " + myName + ". I am your personal assistant " + botName + ". What can I do for you sir?")
 run_alexa()
