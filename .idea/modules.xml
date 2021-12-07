@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../AutomateMessanger/.idea/AutomateMessanger.iml" filepath="$PROJECT_DIR$/../AutomateMessanger/.idea/AutomateMessanger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../EmailBot/.idea/EmailBot.iml" filepath="$PROJECT_DIR$/../EmailBot/.idea/EmailBot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Test 1/.idea/Test 1.iml" filepath="$PROJECT_DIR$/../Test 1/.idea/Test 1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/WDK Assistant.iml" filepath="$PROJECT_DIR$/.idea/WDK Assistant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../activeComputer/.idea/activeComputer.iml" filepath="$PROJECT_DIR$/../activeComputer/.idea/activeComputer.iml" />
+    </modules>
+  </component>
+</project>
